@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="event in events" ui-sref="event.edit({eventID: '{{event._id}}' })">
+        <tr ng-repeat="event in events | orderBy: '-date'" ui-sref="event.edit({eventID: '{{event._id}}' })">
             <td>{{event.name}}</td>
             <td>{{event.hours}}</td>
             <td>{{event.date | date : 'EEE, MMM, d'}}</td>
