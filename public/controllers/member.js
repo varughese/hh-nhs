@@ -9,20 +9,24 @@ function totalHours(events) {
 angular.module('nhs')
 
 .controller('memberList', ['$scope', "$state", "$rootScope", "User", function($scope, $state, $rootScope, User){
-    User.all()
-		.then(function(userList) {
-			for(var i=userList.length-1; i>=0; i--) {
-				var m = userList[i], evts = m.events;
-				if(m.lastname === "Fromal") userList.splice(i, 1);
-				m.totalHours = totalHours(evts);
-				m.checked = !evts.filter(function(evt) {
-					return !evt.checked;
-				}).length;
-			}
-			$scope.members = userList.sort(function(u1, u2) {
-				return (u1.lastname.toLowerCase() > u2.lastname.toLowerCase()) ? 1 : -1;
+	if(!$rootScope.members) {
+		User.all()
+			.then(function(userList) {
+				for(var i=userList.length-1; i>=0; i--) {
+					var m = userList[i], evts = m.events;
+					if(m.lastname === "Fromal") userList.splice(i, 1);
+					m.totalHours = totalHours(evts);
+					m.checked = !evts.filter(function(evt) {
+						return !evt.checked;
+					}).length;
+				}
+				$rootScope.members = userList.sort(function(u1, u2) {
+					return (u1.lastname.toLowerCase() > u2.lastname.toLowerCase()) ? 1 : -1;
+				});
 			});
-		});
+	}
+
+
 
 	$scope.propertyName = 'lastname';
 	$scope.reverse = false;
