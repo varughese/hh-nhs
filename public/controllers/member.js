@@ -42,15 +42,38 @@ angular.module('nhs')
 function($scope, $stateParams, $rootScope, User, $q, $state){
     $scope.events = [];
 
-	User.get($stateParams.memberID)
+	var promiseUser = User.get($stateParams.memberID)
 		.then(function(user) {
 			$scope.member = user;
 		});
 
-	User.getEvents($stateParams.memberID)
+	var promiseEvents =User.getEvents($stateParams.memberID)
 		.then(function(events) {
 			$scope.events = events;
 		});
+
+	$q.all([promiseUser, promiseEvents])
+		.then(function() {
+			checkHours();
+		});
+
+	function checkHours() {
+		var summerHours = 0;
+		var total = 0;
+
+		for(var i = 0; i < $scope.events.length; i++){
+			var hrs = $scope.events[i].hours;
+			var month = new Date($scope.events[i].date).getMonth() + 1;
+			total += hrs;
+			if(6 <= month && month <= 8)
+				summerHours += hrs;
+		}
+		if(summerHours > 10) { //  %%CONFIG%% RULE: 10 HOURS SUMMER MAX
+			var message = $scope.member.firstname + " has too many summer hours! (" + summerHours + ")";
+			$("#alert-wrapper").html("<div class=\"alert alert-danger\">" + message + "</div>");
+		}
+		$("#total-hours").text(total);
+	}
 
 	$scope.findTotal = function() {
         var total = 0;
