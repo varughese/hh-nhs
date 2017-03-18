@@ -58,16 +58,19 @@ function($scope, $stateParams, $rootScope, User, $q, $state){
 		});
 
 	function checkHours() {
-		var summerHours = 0;
-		var total = 0;
+		var summerHours, total, signedHours;
+		summerHours = total = signedHours = 0;
 
 		for(var i = 0; i < $scope.events.length; i++){
 			var hrs = $scope.events[i].hours;
 			var month = new Date($scope.events[i].date).getMonth() + 1;
 			total += hrs;
+			if($scope.events[i].checked)
+				signedHours += hrs;
 			if(6 <= month && month <= 8)
 				summerHours += hrs;
 		}
+
 		if(summerHours > 10) { //  %%CONFIG%% RULE: 10 HOURS SUMMER MAX
 			var message = $scope.member.firstname + " has too many summer hours! (" + summerHours + ")";
 			$("#alert-wrapper").html("<div class=\"alert alert-danger\">" + message + "</div>");
