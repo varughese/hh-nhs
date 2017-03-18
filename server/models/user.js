@@ -8,7 +8,8 @@ var UserSchema = new Schema({
     username: { type: String, required: true, index: { unique: true}},
     password: { type: String, required: true, select: false},
     events: [ { type: Schema.Types.ObjectId, ref: 'Events'}],
-    admin: { type: Boolean, default: false }
+    admin: { type: Boolean, default: false },
+    gradyear: { type: Number, default: new Date().getFullYear()+1 }
 });
 
 UserSchema.pre('save', function(next) {

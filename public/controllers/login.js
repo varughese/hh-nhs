@@ -20,6 +20,10 @@ angular.module('nhs')
 }])
 
 .controller('signup', ['$scope', "$state", "$rootScope", "User", function($scope, $state, $rootScope, User){
+    $scope.seniorYear = (new Date()).getFullYear();
+    $scope.juniorYear = $scope.seniorYear + 1;
+    $scope.user = $scope.user || {};
+    $scope.user.gradyear = $scope.juniorYear+"";
 
     $scope.signup = function(){
 		console.log($scope.user);
@@ -37,6 +41,8 @@ angular.module('nhs')
             });
     };
 }])
+
+//db.users.update({ username: "zmvarugh" }, { $set: { gradyear: 2017 } })
 
 .directive("compareTo", ["$parse", function($parse) {
     return {
