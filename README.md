@@ -12,7 +12,7 @@ NHS Website
 - Hold `Shift` and right click (you have to right click near the bottom of the window in a space that is white). Click open in command prompt.
 - Type the following `node server.js`
 - Open up a web browser and type in the following url `localhost:8080`
-- Or just go to [http://hhnhs.herokuapp.com]()
+- Or just go to [http://hhnhs.herokuapp.com](http://hhnhs.herokuapp.com)
 
 You should see a login screen. Ask me or Jason for a login.
 
