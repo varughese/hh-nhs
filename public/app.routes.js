@@ -45,6 +45,11 @@ angular.module('nhs')
             templateUrl: "templates/uevent.html",
             controller: "upcomingEventCreate"
         })
+		.state("uevent.all", {
+            url: "/all",
+            templateUrl: "templates/ueventAll.html",
+            controller: "upcomingEventCreate"
+        })
         .state("uevent.edit", {
             url: "/edit/:ueventID",
             templateUrl: "templates/uevent.html",
