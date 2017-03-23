@@ -73,8 +73,12 @@ body {
 }
 
 
-.uevent-table .edit span {
+.uevent-table .edit-uevent span {
     margin-right: 3px;
+}
+.uevent-table .delete-uevent {
+    color: firebrick;
+    cursor: pointer;
 }
 
 .nhs-date-picker table {

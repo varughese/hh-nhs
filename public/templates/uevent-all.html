@@ -14,8 +14,11 @@
             <td>
                 <div>
                     <b>{{event.name}}
-                        <a class="edit" ng-if="user.admin" ui-sref="uevent.edit({ ueventID: '{{event._id}}' })">
+                        <a class="edit-uevent" ng-if="user.admin" ui-sref="uevent.edit({ ueventID: '{{event._id}}' })">
                             Edit
+                        </a>
+                        <a class="delete-uevent" ng-if="user.admin" ng-click="deleteUevent(event._id)">
+                            Delete
                         </a>
                     </b>
 					<div class="time-info">

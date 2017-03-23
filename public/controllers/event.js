@@ -56,6 +56,20 @@ angular.module('nhs')
             });
     };
 
+	$scope.deleteUevent = function(ueventID) {
+		UpcomingEvent.delete(ueventID)
+			.then(function(resp) {
+				var i;
+				for(i=0; i<$rootScope.upcoming.length; i++) {
+					var uevent = $rootScope.upcoming[i];
+					if(ueventID === uevent._id) {
+						break;
+					}
+				}
+				$rootScope.upcoming.splice(i, 1);
+			});
+	};
+
 
 }])
 
