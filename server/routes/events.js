@@ -53,14 +53,15 @@ module.exports = function(apiRouter) {
             });
         })
         .delete(function(req, res) {
+            var id = req.params.eventID;
             Event.remove({
-                _id: req.params.eventID
+                _id: id
             }, function(err, user) {
                 if(err) return res.send(err);
                 req.user.events.splice(req.user.events.indexOf(req.params.eventID), 1);
                 req.user.save(function(err, user) {
                     if(err) return res.send(err);
-                    res.json({message: 'succesfully deleted'});
+                    res.json({message: 'succesfully deleted', _id: id});
                 });
             });
         });
@@ -80,4 +81,17 @@ module.exports = function(apiRouter) {
             res.json(uevents);
         });
     });
+
+
+    apiRouter.delete('/upcoming-events/:ueventID', function(req, res) {
+        var id = req.params.ueventID;
+        UpcomingEvent.remove({
+            _id: id
+        }, function(err, user) {
+            if(err) return res.send(err);
+            res.json({message: 'succesfully deleted', _id: id});
+        });
+
+    });
+
 };

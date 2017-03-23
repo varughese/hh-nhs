@@ -1,0 +1,36 @@
+<h2>
+    All Events
+</h2>
+
+<table class="table uevent-table">
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="event in upcoming">
+            <td>
+                <div>
+                    <b>{{event.name}}
+                        <a class="edit-uevent" ng-if="user.admin" ui-sref="uevent.edit({ ueventID: '{{event._id}}' })">
+                            Edit
+                        </a>
+                        <a class="delete-uevent" ng-if="user.admin" ng-click="deleteUevent(event._id)">
+                            Delete
+                        </a>
+                    </b>
+					<div class="time-info">
+						<span><b>Location</b> {{event.location}} </span>
+					</div>
+                    <div class="time-info">
+                        <span><b>Time</b> {{event.timeStart}} – {{event.timeEnd}}</span>
+                    </div>
+                    <div class="description" ng-bind-html="event.htmlDescription"></div>
+                </div>
+            </td>
+            <td>{{event.date | date : 'EEEE, MMM, d'}}</td>
+        </tr>
+    </tbody>
+</table>
