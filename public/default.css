@@ -132,3 +132,19 @@ div.has-button-bar {
     top: 3px;
     left: 2px;
 }
+
+.admin-panel .btn-xs {
+    margin-top: -2px;
+}
+
+.admin-panel-button {
+    float: right;
+}
+
+.admin-panel .small-input {
+    color: black;
+    padding: 1px 2px 2px 2px;
+    border: 1px solid #dddddd;
+    line-height: 0px;
+    margin-top: -3px;
+}

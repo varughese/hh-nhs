@@ -27,13 +27,38 @@ angular.module('nhs')
 	}
 
 
+	$scope.toggleAdminPanel = function() {
+		$scope.showAdminPanel = !$scope.showAdminPanel;
+	};
 
+	$scope.showAdminPanel = false;
 	$scope.propertyName = 'lastname';
 	$scope.reverse = false;
 
 	$scope.sortBy = function(propertyName) {
 		$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
 		$scope.propertyName = propertyName;
+	};
+
+	$scope.toggleAdmin = function(member) {
+		User.toggleAdmin(member._id)
+			.then(function(data) {
+				member.admin = !member.admin;
+			});
+	};
+
+	$scope.resetPass = function(member, event) {
+		var row = event.currentTarget.parentElement;
+		if(member.password) {
+			User.update(member._id, { password: member.password } )
+				.then(function(data) {
+					row.innerHTML = "<b>RESET</b>";
+				})
+				.catch(function(err) {
+					row.innerHTML = "<b>ERROR</b>";
+					console.error(err);
+				});
+		}
 	};
 
 }])

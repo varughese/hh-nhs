@@ -58,4 +58,17 @@ module.exports = function(apiRouter) {
                 res.send({checked: !!event.checked});
             });
         });
+
+    apiRouter.put('/users/:userID/toggle-admin', checkAdmin, function(req, res) {
+        User.findById(req.params.userID, function(err, user) {
+            user.admin = !user.admin;
+
+            user.save(function(err) {
+                if(err) res.send(err);
+
+                res.json({message: user.admin ? 'User is now an admin' : 'User is no longer an admin'});
+            });
+        });
+    });
+
 };

@@ -27,6 +27,8 @@ angular.module('nhs')
 
     $scope.signup = function(){
 		console.log($scope.user);
+        $scope.user.firstname = $scope.user.firstname.charAt(0).toUpperCase() + $scope.user.firstname.slice(1);
+        $scope.user.lastname = $scope.user.lastname.charAt(0).toUpperCase() + $scope.user.lastname.slice(1);
 
         User.create($scope.user)
             .then(function(resp) {
