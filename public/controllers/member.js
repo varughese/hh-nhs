@@ -40,10 +40,10 @@ angular.module('nhs')
 		$scope.propertyName = propertyName;
 	};
 
-	$scope.toggleAdmin = function(memberID) {
-		User.toggleAdmin(memberID)
+	$scope.toggleAdmin = function(member) {
+		User.toggleAdmin(member._id)
 			.then(function(data) {
-				console.log(data);
+				member.admin = !member.admin;
 			});
 	};
 }])
