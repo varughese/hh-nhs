@@ -8,7 +8,7 @@ function totalHours(events) {
 
 angular.module('nhs')
 
-.controller('memberList', ['$scope', "$state", "$rootScope", "User", function($scope, $state, $rootScope, User){
+.controller('memberList', ['$scope', "$state", "$rootScope", "User", "$timeout", function($scope, $state, $rootScope, User, $timeout){
 	if(!$rootScope.members) {
 		User.all()
 			.then(function(userList) {
@@ -19,6 +19,7 @@ angular.module('nhs')
 					m.checked = !evts.filter(function(evt) {
 						return !evt.checked;
 					}).length;
+					m.dateCreated =  new Date(parseInt(m._id.substring(0, 8), 16) * 1000);
 				}
 				$rootScope.members = userList.sort(function(u1, u2) {
 					return (u1.lastname.toLowerCase() > u2.lastname.toLowerCase()) ? 1 : -1;
@@ -58,6 +59,25 @@ angular.module('nhs')
 					row.innerHTML = "<b>ERROR</b>";
 					console.error(err);
 				});
+		}
+	};
+
+	$scope.removeUser = function(event, member, timerFalse) {
+		var useTimer = !timerFalse;
+		var row = event.currentTarget.parentElement;
+		if(useTimer) {
+			$timeout(function () {
+				member.confirmDelete = true;
+			}, 1000);
+			$timeout(function () {
+				member.confirmDelete = false;
+			}, 200);
+		} else {
+			User.delete(member._id)
+				.then(function(data) {
+					row.innerHTML = "<b>DELETED</b>";
+				});
+
 		}
 	};
 
