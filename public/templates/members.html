@@ -46,8 +46,6 @@
             </th>
             <th>
                 <span class="hide-when-small">Reset Password</span>
-                <span class="glyphicon" ng-click="reverse = !reverse" ng-show="propertyName === 'checked'" ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"></span>
-                <span class="glyphicon glyphicon-sort" ng-click="propertyName = 'checked'; reverse=false" ng-show="propertyName !== 'checked'"></span>
             </th>
         </tr>
     </thead>
@@ -56,13 +54,13 @@
             <td class='fullname'>{{member.firstname + " " + member.lastname}}</td>
             <td>
                 <button class="btn btn-default btn-xs" ng-click="toggleAdmin(member)" ng-class="{'btn-warning': member.admin }">
-                    <span class="hide-when-small">{{ member.admin ? "Remove" : "Make" }} Admin</span>
+                    <span>{{ member.admin ? "Remove" : "Make" }} Admin</span>
                 </button>
             </td>
             <td>
+                <input class="small-input" placeholder="Enter new password">
                 <button class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-credit-card"></span>
-                    <span class="hide-when-small">Reset Password</span>
+                    <span>Reset Password</span>
                 </button>
             </td>
         </tr>

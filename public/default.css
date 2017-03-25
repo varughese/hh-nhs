@@ -140,3 +140,11 @@ div.has-button-bar {
 .admin-panel-button {
     float: right;
 }
+
+.admin-panel .small-input {
+    color: black;
+    padding: 1px 2px 2px 2px;
+    border: 1px solid #dddddd;
+    line-height: 0px;
+    margin-top: -3px;
+}
