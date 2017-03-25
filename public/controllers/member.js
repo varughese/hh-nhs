@@ -42,6 +42,10 @@ angular.module('nhs')
 
 	$scope.toggleAdmin = function(member) {
 		console.log("ADMINIZE NIGGA", member);
+		User.update(member.id, { admin: !member.admin })
+			.then(function(data) {
+				console.log(data);
+			});
 	};
 }])
 
