@@ -1,8 +1,8 @@
 <h2>
-    Member List
-        <button ng-if="user.admin" ng-click="toggleAdminPanel()" class="btn btn-default">
+    {{ showAdminPanel ? 'Admin Panel' : 'Member List' }}
+        <button ng-if="user.admin" ng-click="toggleAdminPanel()" class="btn btn-default admin-panel-button">
             <span class="glyphicon glyphicon-user"></span>
-            <span class="hide-when-small">Admin Panel</span>
+            <span class="hide-when-small">{{ showAdminPanel ? 'Member List': 'Admin Panel' }}</span>
         </button>
 </h2>
 
@@ -32,7 +32,7 @@
     </tbody>
 </table>
 
-<table ng-show="showAdminPanel" class="table clickable-table table-striped member-list">
+<table ng-show="showAdminPanel" class="table clickable-table table-striped member-list admin-panel">
     <thead>
         <tr class="filtertable">
             <th>Name
@@ -55,7 +55,7 @@
         <tr ng-repeat="member in members | orderBy:propertyName:reverse">
             <td class='fullname'>{{member.firstname + " " + member.lastname}}</td>
             <td>
-                <button class="btn btn-default btn-xs" ng-click="toggleAdmin(member)" ng-class="{'btn-warning': member.admin }">
+                <button class="btn btn-default btn-xs" ng-click="toggleAdmin(member._id)" ng-class="{'btn-warning': member.admin }">
                     <span class="hide-when-small">{{ member.admin ? "Remove" : "Make" }} Admin</span>
                 </button>
             </td>

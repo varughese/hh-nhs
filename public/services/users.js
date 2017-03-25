@@ -37,6 +37,13 @@ angular.module('nhs')
 			});
 	};
 
+    user.toggleAdmin = function(userID) {
+		return $http.put(apiUrl + userID + "/toggle-admin")
+			.then(function(response) {
+				return response.data;
+			});
+	};
+
     user.update = function(userID, userInfo) {
         return $http.put(apiUrl + userID, userInfo);
     };

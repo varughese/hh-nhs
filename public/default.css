@@ -132,3 +132,11 @@ div.has-button-bar {
     top: 3px;
     left: 2px;
 }
+
+.admin-panel .btn-xs {
+    margin-top: -2px;
+}
+
+.admin-panel-button {
+    float: right;
+}

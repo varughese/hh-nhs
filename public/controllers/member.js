@@ -40,9 +40,8 @@ angular.module('nhs')
 		$scope.propertyName = propertyName;
 	};
 
-	$scope.toggleAdmin = function(member) {
-		console.log("ADMINIZE NIGGA", member);
-		User.update(member.id, { admin: !member.admin })
+	$scope.toggleAdmin = function(memberID) {
+		User.toggleAdmin(memberID)
 			.then(function(data) {
 				console.log(data);
 			});
