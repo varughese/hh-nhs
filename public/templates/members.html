@@ -1,8 +1,12 @@
 <h2>
     Member List
+        <button ng-if="user.admin" ng-click="toggleAdminPanel()" class="btn btn-default">
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="hide-when-small">Admin Panel</span>
+        </button>
 </h2>
 
-<table class="table clickable-table table-striped member-list">
+<table ng-hide="showAdminPanel" class="table clickable-table table-striped member-list">
     <thead>
         <tr class="filtertable">
             <th>Name
@@ -24,6 +28,43 @@
             <td class='fullname'>{{member.firstname + " " + member.lastname}}</td>
             <td>{{member.totalHours}}</td>
             <td><span ng-class="{'glyphicon-ok': member.checked }" class="glyphicon"></span></td>
+        </tr>
+    </tbody>
+</table>
+
+<table ng-show="showAdminPanel" class="table clickable-table table-striped member-list">
+    <thead>
+        <tr class="filtertable">
+            <th>Name
+                <span class="glyphicon" ng-click="reverse = !reverse" ng-show="propertyName === 'lastname'" ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"></span>
+                <span class="glyphicon glyphicon-sort" ng-click="propertyName = 'lastname'; reverse=false" ng-show="propertyName !== 'lastname'"></span>
+            </th>
+            <th>
+                <span class="hide-when-small">Admin</span>
+                <span class="glyphicon" ng-click="reverse = !reverse" ng-show="propertyName === 'admin'" ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"></span>
+                <span class="glyphicon glyphicon-sort" ng-click="propertyName = 'admin'; reverse=false" ng-show="propertyName !== 'admin'"></span>
+            </th>
+            <th>
+                <span class="hide-when-small">Reset Password</span>
+                <span class="glyphicon" ng-click="reverse = !reverse" ng-show="propertyName === 'checked'" ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"></span>
+                <span class="glyphicon glyphicon-sort" ng-click="propertyName = 'checked'; reverse=false" ng-show="propertyName !== 'checked'"></span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="member in members | orderBy:propertyName:reverse">
+            <td class='fullname'>{{member.firstname + " " + member.lastname}}</td>
+            <td>
+                <button class="btn btn-default btn-xs" ng-click="toggleAdmin(member)" ng-class="{'btn-warning': member.admin }">
+                    <span class="hide-when-small">{{ member.admin ? "Remove" : "Make" }} Admin</span>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-credit-card"></span>
+                    <span class="hide-when-small">Reset Password</span>
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>

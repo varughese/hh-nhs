@@ -27,7 +27,11 @@ angular.module('nhs')
 	}
 
 
+	$scope.toggleAdminPanel = function() {
+		$scope.showAdminPanel = !$scope.showAdminPanel;
+	};
 
+	$scope.showAdminPanel = false;
 	$scope.propertyName = 'lastname';
 	$scope.reverse = false;
 
@@ -36,6 +40,9 @@ angular.module('nhs')
 		$scope.propertyName = propertyName;
 	};
 
+	$scope.toggleAdmin = function(member) {
+		console.log("ADMINIZE NIGGA", member);
+	};
 }])
 
 .controller('singleMember', ['$scope', "$stateParams", "$rootScope", "User", "$q", "$state",
