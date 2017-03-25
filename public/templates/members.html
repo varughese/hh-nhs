@@ -51,16 +51,16 @@
     </thead>
     <tbody>
         <tr ng-repeat="member in members | orderBy:propertyName:reverse">
-            <td class='fullname'>{{member.firstname + " " + member.lastname}}</td>
+            <td class='fullname'>{{member.firstname + " " + member.lastname}} <i>{{member.username}}</i></td>
             <td>
                 <button class="btn btn-default btn-xs" ng-click="toggleAdmin(member)" ng-class="{'btn-warning': member.admin }">
                     <span>{{ member.admin ? "Remove" : "Make" }} Admin</span>
                 </button>
             </td>
             <td>
-                <input class="small-input" placeholder="Enter new password">
-                <button class="btn btn-default btn-xs">
-                    <span>Reset Password</span>
+                <input class="small-input" ng-model="member.password" placeholder="Enter new password">
+                <button class="btn btn-default btn-xs btn-danger" ng-click="resetPass(member)">
+                    <span>Reset</span>
                 </button>
             </td>
         </tr>

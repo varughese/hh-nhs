@@ -46,6 +46,14 @@ angular.module('nhs')
 				member.admin = !member.admin;
 			});
 	};
+
+	$scope.resetPass = function(member) {
+		User.update(member._id, member)
+			.then(function(data) {
+				console.log(data);
+			});
+	};
+
 }])
 
 .controller('singleMember', ['$scope', "$stateParams", "$rootScope", "User", "$q", "$state",
