@@ -47,11 +47,18 @@ angular.module('nhs')
 			});
 	};
 
-	$scope.resetPass = function(member) {
-		User.update(member._id, member)
-			.then(function(data) {
-				console.log(data);
-			});
+	$scope.resetPass = function(member, event) {
+		var row = event.currentTarget.parentElement;
+		if(member.password) {
+			User.update(member._id, { password: member.password } )
+				.then(function(data) {
+					row.innerHTML = "<b>RESET</b>";
+				})
+				.catch(function(err) {
+					row.innerHTML = "<b>ERROR</b>";
+					console.error(err);
+				});
+		}
 	};
 
 }])
