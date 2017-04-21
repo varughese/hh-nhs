@@ -117,6 +117,15 @@ div.has-button-bar {
     .hide-when-small {
         display: none;
     }
+	.shrink-when-small {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.admin-panel .btn-xs {
+		margin-top: 4px !important;
+	}
 }
 
 
