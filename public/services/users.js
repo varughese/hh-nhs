@@ -29,6 +29,7 @@ angular.module('nhs')
         var apiUrl = '/api/users/';
 
         var user = {};
+		
 
         user.all = function() {
             return $http.get(apiUrl)
