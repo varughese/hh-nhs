@@ -8,7 +8,7 @@ function totalHours(events) {
 
 angular.module('nhs')
 
-    .controller('memberList', ['$scope', "$state", "$rootScope", "User", "$timeout", function($scope, $state, $rootScope, User, $timeout) {
+    .controller('memberList', ['$scope', "$state", "$rootScope", 'Excel', "User", "$timeout", function($scope, $state, $rootScope, Excel, User, $timeout) {
         if (!$rootScope.members) {
             User.all()
                 .then(function(userList) {
@@ -28,6 +28,12 @@ angular.module('nhs')
                 });
         }
 
+        $scope.exportToExcel = function(tableId) { // ex: '#my-table'
+            $scope.exportHref = Excel.tableToExcel(tableId, 'sheet name');
+            $timeout(function() {
+                location.href = $scope.exportHref;
+            }, 100);
+        };
 
         $scope.toggleAdminPanel = function() {
             $scope.showAdminPanel = !$scope.showAdminPanel;
@@ -66,8 +72,8 @@ angular.module('nhs')
         };
 
         $scope.exportExcel = function(e) {
-			window.open('data:application/vnd.ms-excel,' + angular.element('.member-list-export').html());
-    		e.preventDefault();
+            window.open('data:application/vnd.ms-excel,' + angular.element('.member-list-export').html());
+            e.preventDefault();
         };
 
         $scope.removeUser = function(event, member, timerFalse) {

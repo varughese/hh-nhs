@@ -1,13 +1,13 @@
 <h2>
     {{ showAdminPanel ? 'Admin Panel' : 'Member List' }}
-	<button ng-click="exportExcel($event)" class="btn btn-default export-button"><span class="glyphicon glyphicon-th"></span> Export</button>
+	<button ng-click="exportToExcel('#jawnyjawn')" class="btn btn-default export-button"><span class="glyphicon glyphicon-share"></span> Export</button>
     <button ng-if="user.admin" ng-click="toggleAdminPanel()" class="btn btn-default admin-panel-button">
         <span class="glyphicon glyphicon-user"></span>
         <span class="hide-when-small">{{ showAdminPanel ? 'Member List': 'Admin Panel' }}</span>
     </button>
 </h2>
 
-<table ng-hide="showAdminPanel" class="table clickable-table table-striped member-list member-list-export">
+<table ng-hide="showAdminPanel" id="jawnyjawn" class="table clickable-table table-striped member-list member-list-export">
     <thead>
         <tr class="filtertable">
             <th>Name
