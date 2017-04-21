@@ -140,6 +140,11 @@ div.has-button-bar {
 
 .admin-panel-button {
     float: right;
+	margin-right: 6px;
+}
+
+.export-button {
+    float: right;
 }
 
 .admin-panel .small-input {
