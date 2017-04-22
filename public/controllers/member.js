@@ -28,10 +28,10 @@ angular.module('nhs')
                 });
         }
 
-        $scope.exportToExcel = function(tableId) { // ex: '#my-table'
-            $scope.exportHref = Excel.tableToExcel(tableId, 'sheet name');
+        $scope.exportToExcel = function(tableId) {
+            var exportHref = Excel.tableToExcel(tableId, 'FromalIsABeast');
             $timeout(function() {
-                location.href = $scope.exportHref;
+                location.href = exportHref;
             }, 100);
         };
 
