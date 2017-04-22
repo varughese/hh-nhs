@@ -37,11 +37,6 @@
     </tbody>
 </table>
 
-<button ng-show="!showAdminPanel" ng-click="exportToExcel('.member-list-export')" class="btn btn-xs btn-default hide-when-small export-button">
-    <span class="glyphicon glyphicon-share"></span>
-    <span>Export to Excel</span>
-</button>
-
 <table ng-show="showAdminPanel" class="table clickable-table table-striped member-list admin-panel">
     <thead>
         <tr class="filtertable">
@@ -94,3 +89,18 @@
         </tr>
     </tbody>
 </table>
+
+<button ng-show="!showAdminPanel" ng-click="exportToExcel('.member-list-export')" class="btn btn-xs btn-default hide-when-small export-button">
+    <span class="glyphicon glyphicon-share"></span>
+    <span>Export to Excel</span>
+</button>
+
+<div class="help-text">
+    <p>
+        <span class="glyphicon glyphicon-question-sign"></span>
+        If there are any problems email <a href="mailto:matvarughese3@gmail.com">matvarughese3@gmail.com</a> or <a href="mailto:j26walker@gmail.com">j26walker@gmail.com</a>.
+    </p>
+    <p>
+        To delete a member, in the Admin Panel click the trashcan icon. Then, double click the SURE button. THIS CANNOT BE UNDONE! Resetting password also can be done in the admin panel.
+    </p>
+</div>

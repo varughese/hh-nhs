@@ -152,14 +152,34 @@ div.has-button-bar {
 	margin-right: 6px;
 }
 
-.export-button {
-    float: right;
-}
-
 .admin-panel .small-input {
     color: black;
     padding: 1px 2px 2px 2px;
     border: 1px solid #dddddd;
     line-height: 0px;
     margin-top: -3px;
+}
+
+.help-text {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    background: #f9f9f9;
+}
+
+.help-text .glyphicon.glyphicon-question-sign {
+    margin-right: 7px;
+    float: left;
+}
+
+.help-text a {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.export-button {
+    float: right;
 }
