@@ -117,6 +117,15 @@ div.has-button-bar {
     .hide-when-small {
         display: none;
     }
+	.shrink-when-small {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.admin-panel .btn-xs {
+		margin-top: 4px !important;
+	}
 }
 
 
@@ -140,6 +149,7 @@ div.has-button-bar {
 
 .admin-panel-button {
     float: right;
+	margin-right: 6px;
 }
 
 .admin-panel .small-input {
@@ -148,4 +158,28 @@ div.has-button-bar {
     border: 1px solid #dddddd;
     line-height: 0px;
     margin-top: -3px;
+}
+
+.help-text {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    background: #f9f9f9;
+}
+
+.help-text .glyphicon.glyphicon-question-sign {
+    margin-right: 7px;
+    float: left;
+}
+
+.help-text a {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.export-button {
+    float: right;
 }

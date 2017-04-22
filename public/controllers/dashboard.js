@@ -2,9 +2,9 @@ angular.module('nhs')
 
 .controller('dashboard', ['$scope', "$state", "$rootScope", "Event", "UpcomingEvent", "$timeout", "$sce", function($scope, $state, $rootScope, Event, UpcomingEvent, $timeout, $sce){
     $scope.events = [];
-
-    var watcher = $rootScope.$watch("user", function(n, o, s) {
-        if(n && n.id) {
+	var watcher = $rootScope.$watch("user", function(n, o, s) {
+		
+		if(n && n.id) {
             Event.all()
                 .then(function(events) {
                     $scope.events = events.reverse();

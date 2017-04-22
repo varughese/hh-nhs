@@ -17,6 +17,7 @@ module.exports = function(app, express) {
             user.password = req.body.password;
             user.gradyear = Number(req.body.gradyear);
             if(req.body.admin) user.admin = true;
+			
 
             user.save(function(err) {
                 if(err) {
