@@ -14,6 +14,7 @@ module.exports = function(grunt) {
                 "public/services/auth.js",
                 "public/services/events.js",
                 "public/services/users.js",
+                "public/services/utils.js",
                 "public/controllers/main.js",
                 "public/controllers/login.js",
                 "public/controllers/dashboard.js",
