@@ -65,6 +65,11 @@ angular.module('nhs')
 			templateUrl: "templates/single-member.html",
 			controller: "singleMember"
 		})
+	.state("info", {
+			url: "/info",
+			templateUrl: "templates/info.html",
+			controller: "info"
+		})
         ;
 }])
 

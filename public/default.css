@@ -183,3 +183,7 @@ div.has-button-bar {
 .export-button {
     float: right;
 }
+
+.info {
+    margin-top: 20px;
+}
