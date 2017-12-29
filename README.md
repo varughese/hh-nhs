@@ -2,7 +2,7 @@
 NHS Website. Live @ [http://hhnhs.herokuapp.com](http://hhnhs.herokuapp.com)
 
 ## What is This
-When I was in high school, I was a National Honor Society (NHS) officer and I decided to create an application to digitize the logging of community service hours. 
+In high school, I was a National Honor Society (NHS) officer and promised to create an application to digitize the logging of community service hours. Before, members of the club had to go to the NHS advisor's room, request to get the "NHS notebook", and log their community service hours after each new event they did. It was 2016 at the time. Who uses paper to log things in 2016?
 
 It is a pretty simple CRUD app built with the MEAN stack, deployed to Heroku. It includes the following features:
 - Authentication
@@ -35,7 +35,7 @@ It is a pretty simple CRUD app built with the MEAN stack, deployed to Heroku. It
 - Open up a web browser and type in the following url `localhost:8080`
 - Login!
 
-# Instructions for Deploying
+## Instructions for Deploying
 There are two branches on this project: the `master` and `production`. Pushing to the `production` branch will trigger a deploy to Heroku, which will deploy a new change!
 
 The `production` branch is different because it minifies and concatenates all of the HTML templates and JS files. This reduces filesize and server requests, which is pretty important when you are using a free hosting service.
