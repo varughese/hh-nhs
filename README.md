@@ -2,7 +2,7 @@
 NHS Website. Live @ [http://hhnhs.herokuapp.com](http://hhnhs.herokuapp.com)
 
 ## What is This
-In high school, I was a National Honor Society (NHS) officer and promised to create an application to digitize the logging of community service hours. Before, members of the club had to go to the NHS advisor's room, request to get the "NHS notebook", and log their community service hours after each new event they did. It was 2016 at the time. Who uses paper to log things in 2016?
+In high school, I was a National Honor Society (NHS) officer and promised to create an application to digitize the logging of community service hours. Before, members had to go to the NHS advisor's room, request to get the "NHS notebook", flip through hundreds of pages to find their name, write their community service hours in, and *then* repeat this process for each new community service event they completed. It was 2016 at the time. Who uses paper to log things in 2016?
 
 It is a pretty simple CRUD app built with the MEAN stack, deployed to Heroku. It includes the following features:
 - Authentication
